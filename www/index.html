@@ -1,44 +1,9 @@
-
-<!doctype html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>مدیریت تغذیه گلخانه</title>
-  <link rel="stylesheet" href="css/app.css">
-</head>
-<body>
-  <main>
-    <h1>پیوندگسترپارسان</h1>
-    <h2>مدیریت تغذیه گلخانه</h2>
-    <p>نسخه آزمایشی برنامه</p>
-
-    <section>
-      <h3>محاسبه عناصر غذایی</h3>
-      <label for="nitrogen">نیتروژن (mg/L)</label>
-      <input id="nitrogen" type="number" value="150">
-
-      <label for="phosphorus">فسفر (mg/L)</label>
-      <input id="phosphorus" type="number" value="35">
-
-      <label for="potassium">پتاسیم (mg/L)</label>
-      <input id="potassium" type="number" value="200">
-
-      <button id="check">بررسی مقادیر</button>
-      <p id="result">مقادیر هدف را بررسی کنید.</p>
-    </section>
-  </main>
-
-  <script>
-    document.getElementById('check').addEventListener('click', function () {
-      const n = Number(document.getElementById('nitrogen').value);
-      const p = Number(document.getElementById('phosphorus').value);
-      const k = Number(document.getElementById('potassium').value);
-
-      document.getElementById('result').textContent =
-        'نیتروژن: ' + n + '، فسفر: ' + p + '، پتاسیم: ' + k + ' mg/L';
-    });
-  </script>
-</body>
-</html>
-
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#174b3a"><title>تغذیه گلخانه | پیوندگسترپارسان</title><link rel="stylesheet" href="css/app.css"></head><body>
+<header><div class="logo">پ‌گ‌پ</div><div><h1>تغذیه گلخانه</h1><small>پیوندگسترپارسان · نسخه آزمایشی ۲</small></div></header>
+<nav><button class="tab active" data-tab="solver">حل‌گر تغذیه</button><button class="tab" data-tab="assays">آنالیز کودها</button><button class="tab" data-tab="monitor">پایش گلخانه</button><button class="tab" data-tab="backup">پشتیبان</button></nav><main>
+<section id="solver" class="panel active"><h2>اهداف محلول نهایی (mg/L)</h2><div id="targets" class="grid"></div>
+<div class="card"><h3>تنظیمات مخازن</h3><div class="grid"><label>حجم A (L)<input id="volA" type="number" value="100" min="1"></label><label>حجم B (L)<input id="volB" type="number" value="100" min="1"></label><label>نسبت تزریق ۱ به<input id="denom" type="number" value="100" min="1"></label><label>%Ca نیترات کلسیم<input id="caPct" type="number" value="19" step=".1"></label><label>%N نیترات کلسیم<input id="nPct" type="number" value="15.5" step=".1"></label></div><p class="muted">نیترات کلسیم فقط در B؛ اوره در محاسبات مخزن غیرفعال است.</p></div>
+<div class="card"><h3>کودهای انتخابی مخزن A</h3><div id="choices" class="grid"></div></div><button id="solveBtn" class="primary">محاسبه فرمول</button><button id="resetBtn">بازنشانی اهداف</button><div id="result"></div></section>
+<section id="assays" class="panel"><h2>آنالیز کودها</h2><p class="muted">درصد عناصر خالص است، نه اکسیدها؛ با برچسب واقعی محصول تطبیق دهید.</p><div id="editor"></div><button id="saveAssays" class="primary">ذخیره آنالیزها</button><p id="assayMsg" class="muted"></p></section>
+<section id="monitor" class="panel"><h2>پایش گلخانه</h2><div class="card"><div class="grid"><label>تاریخ<input id="date" type="date"></label><label>گلخانه/قطعه<input id="house" placeholder="نام قطعه"></label><label>EC ورودی<input id="iec" type="number" step=".1"></label><label>EC زه‌آب<input id="dec" type="number" step=".1"></label><label>pH ورودی<input id="iph" type="number" step=".1"></label><label>pH زه‌آب<input id="dph" type="number" step=".1"></label></div><label>یادداشت<textarea id="note" rows="3"></textarea></label><button id="addObs" class="primary">ثبت مشاهده</button></div><div id="observations"></div></section>
+<section id="backup" class="panel"><h2>پشتیبان‌گیری</h2><div class="card"><button id="exportBtn" class="primary">خروجی JSON</button><label>بازیابی فایل JSON<input id="importFile" type="file" accept=".json,application/json"></label><p id="backupMsg" class="muted"></p></div></section></main><footer>نسخه آزمایشی؛ قبل از مصرف عملی کنترل فنی لازم است.</footer><script src="js/solver-core.js"></script><script src="js/app.js"></script></body></html>
