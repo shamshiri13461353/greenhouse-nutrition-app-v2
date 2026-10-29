@@ -1,1 +1,44 @@
 
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>مدیریت تغذیه گلخانه</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <main>
+    <h1>پیوندگسترپارسان</h1>
+    <h2>مدیریت تغذیه گلخانه</h2>
+    <p>نسخه آزمایشی برنامه</p>
+
+    <section>
+      <h3>محاسبه عناصر غذایی</h3>
+      <label for="nitrogen">نیتروژن (mg/L)</label>
+      <input id="nitrogen" type="number" value="150">
+
+      <label for="phosphorus">فسفر (mg/L)</label>
+      <input id="phosphorus" type="number" value="35">
+
+      <label for="potassium">پتاسیم (mg/L)</label>
+      <input id="potassium" type="number" value="200">
+
+      <button id="check">بررسی مقادیر</button>
+      <p id="result">مقادیر هدف را بررسی کنید.</p>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('check').addEventListener('click', function () {
+      const n = Number(document.getElementById('nitrogen').value);
+      const p = Number(document.getElementById('phosphorus').value);
+      const k = Number(document.getElementById('potassium').value);
+
+      document.getElementById('result').textContent =
+        'نیتروژن: ' + n + '، فسفر: ' + p + '، پتاسیم: ' + k + ' mg/L';
+    });
+  </script>
+</body>
+</html>
+
