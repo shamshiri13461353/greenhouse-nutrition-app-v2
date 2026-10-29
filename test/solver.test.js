@@ -1,1 +1,1 @@
-
+const assert=require('node:assert/strict');const S=require('../www/js/solver-core.js');assert.ok(Math.abs(S.coef(19,100,100)-.019)<1e-12);const t={N:150,P:35,K:200,Ca:150,Mg:40,S:50},c={volA:100,volB:100,denom:100,caPct:19,nPct:15.5};const b=S.calcB(t,c);assert.ok(Math.abs(b.Ca-150)<1e-8);assert.ok(Math.abs(b.mass-7894.736842105263)<1e-6);assert.ok(Math.abs(b.N-122.3684210526)<1e-6);const r=S.solve(t,S.FERTS,c);assert.ok(r.warnings.length>=2);assert.ok(r.active.every(f=>f.mass>=0));console.log('All solver prototype tests passed.');
