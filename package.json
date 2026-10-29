@@ -1,0 +1,13 @@
+{
+  "name": "greenhouse-nutrition-app-v2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "node test/solver.test.js"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/cli": "^7.4.3",
+    "@capacitor/core": "^7.4.3"
+  }
+}
